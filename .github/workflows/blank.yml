@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+//攀岩完成後游泳移動指定位置並轉向
+
+public class RotateZ180 : MonoBehaviour
+{
+    public GameObject Target1; //posepoints
+    public GameObject Target2; //ROLE
+    public GameObject Target3; //Player
+    public GameObject Target4; //posepoints
+    public GameObject Target5; //ROLE
+    public GameObject Target6; //Player
+    // Start is called before the first frame update
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Next")
+        {
+            // 移動物件到指定位置(人物、節點)
+            Vector3 targetPosition = new Vector3(11.22f, 50.2f, -199.46f);
+            Target1.transform.position = targetPosition;
+            Target2.transform.position = targetPosition;
+
+
+
+            // 旋轉物件  軸  度(人物、節點)
+
+
+            Target4.transform.Rotate(0, -90, 0); //posepoints
+            Target5.transform.Rotate(0, -90, 0); //ROLE
+
+        }
+
+        if (collision.gameObject.tag == "Next")
+        {
+            // 移動物件到指定位置(VR視角)
+
+            Vector3 targetPosition = new Vector3(24.24f, 56.83f, -199.46f);
+            Target3.transform.position = targetPosition;
+
+
+            // 旋轉物件  軸  度(VR視角)
+            Target6.transform.Rotate(0, -60, 0); //Player
+
+        }
+
+    }
+
+
+
+}
